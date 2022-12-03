@@ -1,0 +1,21 @@
+class Solution {
+    public int maxArea(int[] he) {
+        int left=0,right=he.length-1;
+        int ans=0;
+        while(left<right){
+            int le=right-left;
+            int hi=Math.min(he[left],he[right]);
+            int area=le*hi;
+            ans=Math.max(ans,area);
+            if(he[left]<he[right]){
+                left++;
+            }else if(he[left]>he[right]){
+                right--;
+            }else{
+                left++;
+                right--;
+            }
+        }
+        return ans;
+    }
+}
